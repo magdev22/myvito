@@ -3,7 +3,10 @@
 {% block title %} Одежда {% endblock %}
 
 {% block content %}
+<p class="lead">Одежда.</p>
 
-<h2>Одежда</h2>
+{% for cloud in clouds %}
+<h1>{{ cloud.title }}, одежда!</h1>
+{% endfor %}  
 
 {% endblock %}

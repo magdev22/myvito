@@ -3,6 +3,15 @@
 {% block title %}Страница юзера{% endblock %}
 <div class="container my-3">
     {% block content %}
-    <h2>Страница юзера</h2>
+    <p class="lead">Страница юзера.</p>
+
+    {% for user in users %}
+    
+        <h1>{{ user.name }}</h1>
+        <h2>{{ user.lastname }}</h2>
+        <h3>{{ user.email }}</h3>
+        <h4>{{ user.number }}</h4>
+    {% endfor %}
+
     {% endblock %}
 </div>

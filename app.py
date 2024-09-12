@@ -23,23 +23,28 @@ def index():
 
 @app.route('/user')
 def user():
-    return render_template('user.html')
+    users = User.query.all()
+    return render_template('user.html', users=users)
 
 @app.route('/chat')
 def chat():
-    return render_template('chat.html')
+    chat = Chat.query.all()
+    return render_template('chat.html', chat=chat)
 
 @app.route('/clouds')
 def clouds():
-    return render_template('clouds.html')
+    clouds = Clouds.query.all()
+    return render_template('clouds.html', clouds=clouds)
 
 @app.route('/auto')
 def auto():
-    return render_template('auto.html')
+    autos = Auto.query.all()
+    return render_template('auto.html', autos=autos)
 
 @app.route('/realty')
 def realty():
-    return render_template('realty.html')
+    realty = Realty.query.all()
+    return render_template('realty.html', realty=realty)
 
 
 if __name__ == '__main__':

@@ -3,6 +3,11 @@
 {% block title %} ЧАт {% endblock %}
 <div class="container my-3">
     {% block content %}
-    <h2>Переписка</h2>
+    <p class="lead">сообщения.</p>
+
+    {% for chat in chat %}
+    <h1>{{ chat.message }}, сообщение!</h1>
+    {% endfor %}  
+
     {% endblock %}
 </div>
