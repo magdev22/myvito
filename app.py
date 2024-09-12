@@ -1,10 +1,25 @@
 from flask import Flask, render_template
 
+from models import db, User, Auto, Chat, Clouds, Realty
+
 app = Flask(__name__)
+
+
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///db.db'
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+
+# связываем приложение с базой данных
+
+db.init_app(app)
 
 @app.route('/')
 def index():
-    return render_template('index.html')
+    users = User.query.all()
+    autos = Auto.query.all()
+    chat = Chat.query.all()
+    clouds = Clouds.query.all()
+    realty = Realty.query.all()
+    return render_template('index.html', users=users, autos=autos, chat=chat, clouds=clouds, realty=realty)
 
 @app.route('/user')
 def user():

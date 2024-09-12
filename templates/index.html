@@ -3,6 +3,31 @@
 {% block title %}Главная{% endblock %}
 <div class="container my-3">
     {% block content %}
-    <h2>Объявления о покупках</h2>
+
+    {% for user in users %}
+    <h1>{{ user.name }}, привет!!</h1>
+    <p class="lead">Главная.</p>
+    {% endfor %}    
+
+    {% for auto in autos %}
+    <h1>{{ auto.model }}, автомобиль</h1>
+    <p class="lead">Главная.</p>
+    {% endfor %}    
+
+    {% for chat in chat %}
+    <h1>{{ chat.message }}, chat</h1>
+    <p class="lead">Главная.</p>
+    {% endfor %}   
+    
+    {% for clouds in clouds %}
+    <h1>{{ clouds.title }}, одежда</h1>
+    <p class="lead">Главная.</p>
+    {% endfor %}   
+    
+    {% for realty in realty %}
+    <h1>{{ realty.title }}, квартира</h1>
+    <p class="lead">Главная.</p>
+    {% endfor %}
+    
     {% endblock %}
 </div>
