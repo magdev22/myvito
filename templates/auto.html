@@ -3,9 +3,9 @@
 {% block title %} Авто {% endblock %}
 
 {% block content %}
-<p class="lead">Авто.</p>
+    <p class="lead">Авто.</p>
 
-{% for auto in autos %}
-<h1>{{ auto.model }}, авто!</h1>
-{% endfor %}  
+    {% for auto in autos %}
+    <h1>{{ auto.model }}, авто!</h1>
+    {% endfor %}  
 {% endblock %}

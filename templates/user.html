@@ -1,17 +1,16 @@
 {% extends 'base.html' %}
 
 {% block title %}Страница юзера{% endblock %}
-<div class="container my-3">
-    {% block content %}
-    <p class="lead">Страница юзера.</p>
+    <div class="container my-3">
+        {% block content %}
+        <p class="lead">Страница юзера.</p>
 
-    {% for user in users %}
-    
-        <h1>{{ user.name }}</h1>
-        <h2>{{ user.lastname }}</h2>
-        <h3>{{ user.email }}</h3>
-        <h4>{{ user.number }}</h4>
-    {% endfor %}
-
+        {% for user in users %}
+        
+            <h1>{{ user.name }}</h1>
+            <h2>{{ user.lastname }}</h2>
+            <h3>{{ user.email }}</h3>
+            <h4>{{ user.number }}</h4>
+        {% endfor %}
+    </div>
     {% endblock %}
-</div>

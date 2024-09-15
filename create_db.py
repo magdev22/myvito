@@ -1,4 +1,5 @@
 from flask import Flask
+
 from models import db, User, Auto, Chat, Clouds, Realty
 
 app = Flask(__name__)
@@ -10,8 +11,8 @@ if __name__ == '__main__':
     with app.app_context():
         db.create_all()
 
-        user1 = User(name='name1', lastname='lastname1', email='email1', number='number1')
-        user2 = User(name='name2', lastname='lastname2', email='email2', number='number2')
+        user1 = User(username='name1', password='111')
+        user2 = User(username='name2', password='222')
         db.session.add_all([user1, user2])
         db.session.commit()
 

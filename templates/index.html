@@ -4,30 +4,30 @@
 <div class="container my-3">
     {% block content %}
 
-    {% for user in users %}
-    <p class="lead">юзер.</p>
-    <h1>{{ user.name }}, привет!!</h1>
-    {% endfor %}    
+        {% for user in users %}
+        <p class="lead">юзер.</p>
+        <h1>{{ user.name }}, привет!!</h1>
+        {% endfor %}    
 
-    {% for auto in autos %}
-    <p class="lead">авто.</p>
-    <h1>{{ auto.model }}, автомобиль</h1>
-    {% endfor %}    
+        {% for auto in autos %}
+        <p class="lead">авто.</p>
+        <h1>{{ auto.model }}, автомобиль</h1>
+        {% endfor %}    
 
-    {% for chat in chat %}
-    <p class="lead">сообщения.</p>
-    <h1>{{ chat.message }}, chat</h1>
-    {% endfor %}   
-    
-    {% for clouds in clouds %}
-    <p class="lead">одежда.</p>
-    <h1>{{ clouds.title }}, одежда</h1>
-    {% endfor %}   
-    
-    {% for realty in realty %}
-    <p class="lead">квартира.</p>
-    <h1>{{ realty.title }}, квартира</h1>
-    {% endfor %}
+        {% for chat in chat %}
+        <p class="lead">сообщения.</p>
+        <h1>{{ chat.message }}, chat</h1>
+        {% endfor %}   
+        
+        {% for clouds in clouds %}
+        <p class="lead">одежда.</p>
+        <h1>{{ clouds.title }}, одежда</h1>
+        {% endfor %}   
+        
+        {% for realty in realty %}
+        <p class="lead">квартира.</p>
+        <h1>{{ realty.title }}, квартира</h1>
+        {% endfor %}
     
     {% endblock %}
 </div>

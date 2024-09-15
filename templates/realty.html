@@ -2,8 +2,9 @@
 {% block title %} Квартиры {% endblock %}
 {% block content %}
 
-<p class="lead">Квартиры.</p>
-{% for realty in realty %}
-<h1>{{ realty.title }}, квартира!!</h1>
-{% endfor %}  
+    <p class="lead">Квартиры.</p>
+    {% for realty in realty %}
+    <h1>{{ realty.title }}, квартира!!</h1>
+    {% endfor %}  
+    
 {% endblock %}
