@@ -51,22 +51,24 @@ def realty():
 @app.route('/login', methods=['GET', 'POST'])
 def login():
      if request.method == 'GET':
-        return render_template('login.html', realty=realty)
+        return render_template('login.html')
      if request.method == 'POST':
         username = request.form['username']
         password = request.form['password']
 
         password = request.form['password']
 
+        users = User.query.all()
+
         user = User.query.filter_by(username=username).first()
 
         if user and check_password_hash(user.password, password):
             # Здесь вы можете выполнить дополнительные действия при успешной аутентификации
             flash('Успешный вход!', 'success')
-            return redirect(url_for('index'))
+            return render_template('login.html', user=user)
         else:
             flash('Неверный логин или пароль', 'error')
-            return redirect(url_for('login_form'))
+            return render_template('login.html')
 
 @app.route('/register', methods=['GET', 'POST'])
 def register():
@@ -85,7 +87,7 @@ def register():
             db.session.add(user)
             db.session.commit()
             flash('Регистрация прошла успешно', 'success')
-            return redirect(url_for('register'))
+            return render_template('register.html', user=user)
 
 
 if __name__ == '__main__':
