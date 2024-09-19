@@ -5,8 +5,25 @@
 {% block content %}
     <p class="lead">Одежда.</p>
 
-    {% for cloud in clouds %}
-    <h1>{{ cloud.title }}, одежда!</h1>
-    {% endfor %}  
+    <div class="row">
+        {% for clouds in clouds %}
+        <div class="col-sm-3">
+            <div class="card" style="width: 18rem;">
+                <img src="{{clouds.cloudsphoto}}" class="card-img-top" alt="...">
+                <div class="card-body">
+                <h5 class="card-title">Карточка Одежды</h5>
+                </div>
+                <ul class="list-group list-group-flush">
+                <li class="list-group-item">{{clouds.title}}</li>
+                </ul>
+                <div class="card-body">
+                <a href="#" class="card-link">Ссылка карточки</a>
+                <a href="#" class="card-link">Другая ссылка</a>
+                </div>
+            </div>
+        </div>
+      {% endfor %}
+    </div>
+    <br>
 
 {% endblock %}

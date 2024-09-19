@@ -7,6 +7,7 @@ app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///db.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db.init_app(app)
 
+SECRET_KEY = 'your_secret_key_here'
 if __name__ == '__main__':
     with app.app_context():
         db.create_all()

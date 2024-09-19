@@ -2,9 +2,25 @@
 {% block title %} Квартиры {% endblock %}
 {% block content %}
 
-    <p class="lead">Квартиры.</p>
+<div class="row">
     {% for realty in realty %}
-    <h1>{{ realty.title }}, квартира!!</h1>
-    {% endfor %}  
+    <div class="col-sm-3">
+        <div class="card" style="width: 18rem;">
+            <img src="{{realty.realtyphoto}}" class="card-img-top" alt="...">
+            <div class="card-body">
+            <h5 class="card-title">Карточка Квартиры</h5>
+            </div>
+            <ul class="list-group list-group-flush">
+            <li class="list-group-item">{{realty.title}}</li>
+            </ul>
+            <div class="card-body">
+            <a href="#" class="card-link">Ссылка карточки</a>
+            <a href="#" class="card-link">Другая ссылка</a>
+            </div>
+        </div>
+    </div>
+  {% endfor %}
+</div>
+<br>
     
 {% endblock %}
