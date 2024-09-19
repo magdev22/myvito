@@ -3,31 +3,128 @@
 {% block title %}Главная{% endblock %}
 <div class="container my-3">
     {% block content %}
+    <div>
+        <p>Юзеры</p>
+    </div>
+    <div class="row">
 
         {% for user in users %}
-        <p class="lead">юзер.</p>
-        <h1>{{ user.username }}, привет!!</h1>
-        {% endfor %}    
+          
+          
+            <div class="col-sm-3">
+                <div class="card" style="width: 18rem;">
+                    <img src="{{user.userphoto}}" class="card-img-top" alt="...">
+                    <div class="card-body">
+                    <h5 class="card-title">Карточка юзера</h5>
+                    </div>
+                    <ul class="list-group list-group-flush">
+                    <li class="list-group-item">{{user.username}}</li>
+                    </ul>
+                    <div class="card-body">
+                    <a href="#" class="card-link">Ссылка карточки</a>
+                    <a href="#" class="card-link">Другая ссылка</a>
+                    </div>
+                </div>
+            </div>
+          {% endfor %}
+        </div>
+    <br>
+<div>
+    <p>Авто</p>
+</div>
+        <div class="row">
+            {% for auto in autos %}
+                <div class="col-sm-3">
+                    <div class="card" style="width: 18rem;">
+                        <img src="{{auto.autophoto}}" class="card-img-top" alt="...">
+                        <div class="card-body">
+                        <h5 class="card-title">Карточка Авто</h5>
+                        </div>
+                        <ul class="list-group list-group-flush">
+                        <li class="list-group-item">{{auto.model}}</li>
+                        </ul>
+                        <div class="card-body">
+                        <a href="#" class="card-link">Ссылка карточки</a>
+                        <a href="#" class="card-link">Другая ссылка</a>
+                        </div>
+                    </div>
+                </div>
+              {% endfor %}
+            </div>
+            <br>
+            <div>
+                <p>Чаты</p>
+            </div>
 
-        {% for auto in autos %}
-        <p class="lead">авто.</p>
-        <h1>{{ auto.model }}, автомобиль</h1>
-        {% endfor %}    
-
+    <div class="row">
         {% for chat in chat %}
-        <p class="lead">сообщения.</p>
-        <h1>{{ chat.message }}, chat</h1>
-        {% endfor %}   
-        
+        <div class="col-sm-3">
+            <div class="card" style="width: 18rem;">
+                <img src="{{chat.chatphoto}}" class="card-img-top" alt="...">
+                <div class="card-body">
+                <h5 class="card-title">Чаты</h5>
+                </div>
+                <ul class="list-group list-group-flush">
+                <li class="list-group-item">{{chat.message}}</li>
+                </ul>
+                <div class="card-body">
+                <a href="#" class="card-link">Ссылка карточки</a>
+                <a href="#" class="card-link">Другая ссылка</a>
+                </div>
+            </div>
+        </div>
+      {% endfor %}
+    </div>
+    <br>
+
+    <div>
+        <p>Одежда</p>
+    </div>
+
+    <div class="row">
         {% for clouds in clouds %}
-        <p class="lead">одежда.</p>
-        <h1>{{ clouds.title }}, одежда</h1>
-        {% endfor %}   
+        <div class="col-sm-3">
+            <div class="card" style="width: 18rem;">
+                <img src="{{clouds.cloudsphoto}}" class="card-img-top" alt="...">
+                <div class="card-body">
+                <h5 class="card-title">Карточка Одежды</h5>
+                </div>
+                <ul class="list-group list-group-flush">
+                <li class="list-group-item">{{clouds.title}}</li>
+                </ul>
+                <div class="card-body">
+                <a href="#" class="card-link">Ссылка карточки</a>
+                <a href="#" class="card-link">Другая ссылка</a>
+                </div>
+            </div>
+        </div>
+      {% endfor %}
+    </div>
+    <br>
         
-        {% for realty in realty %}
-        <p class="lead">квартира.</p>
-        <h1>{{ realty.title }}, квартира</h1>
-        {% endfor %}
-    
+    <div>
+        <p>Недвижимость</p>
+    </div>
+            
+        <div class="row">
+            {% for realty in realty %}
+            <div class="col-sm-3">
+                <div class="card" style="width: 18rem;">
+                    <img src="{{realty.realtyphoto}}" class="card-img-top" alt="...">
+                    <div class="card-body">
+                    <h5 class="card-title">Карточка Квартиры</h5>
+                    </div>
+                    <ul class="list-group list-group-flush">
+                    <li class="list-group-item">{{realty.title}}</li>
+                    </ul>
+                    <div class="card-body">
+                    <a href="#" class="card-link">Ссылка карточки</a>
+                    <a href="#" class="card-link">Другая ссылка</a>
+                    </div>
+                </div>
+            </div>
+          {% endfor %}
+        </div>
+        <br>
     {% endblock %}
 </div>
