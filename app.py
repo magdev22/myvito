@@ -1,16 +1,23 @@
 from flask import Flask, flash, redirect, render_template, request, url_for
 
+from flask_sqlalchemy import SQLAlchemy
 from werkzeug.security import check_password_hash
 
 from models import db, User, Auto, Chat, Clouds, Realty
 
 app = Flask(__name__)
 
+# Установка секретного ключа
 app.secret_key = 'your_secret_key_here'
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///db.db'
+
+# Настройка URI базы данных PostgreSQL
+app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:postgres@localhost/postgres'
+
+# Отключение отслеживания изменений SQLAlchemy
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
-# связываем приложение с базой данных
+# Инициализация расширения SQLAlchemy
+db = SQLAlchemy(app)
 
 db.init_app(app)
 
