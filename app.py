@@ -5,8 +5,20 @@ from werkzeug.security import check_password_hash
 
 from models import db, User, Auto, Chat, Clouds, Realty
 
-app = Flask(__name__)
+app = Flask(__name__, template_folder='templates')
 
+
+# нас ройка отладчика джинджа   
+app.jinja_env.auto_reload = True
+app.jinja_env.autoescape = False
+app.jinja_env.trim_blocks = True
+app.jinja_env.lstrip_blocks = True
+app.jinja_env.debug = True
+   
+
+
+# Добавляем путь к папке с компонентами
+app.jinja_loader.searchpath.append("components")
 # Установка секретного ключа
 app.secret_key = 'your_secret_key_here'
 
@@ -17,7 +29,6 @@ app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:postgres@localhos
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 # Инициализация расширения SQLAlchemy
-db = SQLAlchemy(app)
 
 db.init_app(app)
 
@@ -62,10 +73,6 @@ def login():
      if request.method == 'POST':
         username = request.form['username']
         password = request.form['password']
-
-        password = request.form['password']
-
-        users = User.query.all()
 
         user = User.query.filter_by(username=username).first()
 

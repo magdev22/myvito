@@ -1,0 +1,15 @@
+<!-- card.html -->
+<div class="card">
+    <div class="card-body">
+      {% if user %}
+        <!-- Вывод данных о пользователе -->
+        <h5 class="card-title">{{ user.username }}</h5>
+        <p class="card-text">{{ user.email }}</p>
+      {% elif chat %}
+        <!-- Вывод данных о сообщении -->
+        <p class="card-text">{{ chat.message }}</p>
+        <small class="text-muted">{{ chat.message }}</small>
+      {% endif %}
+    </div>
+  </div>
+  

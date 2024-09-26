@@ -6,22 +6,8 @@
     <p class="lead">сообщения.</p>
     <div class="row">
         {% for chat in chat %}
-        <div class="col-sm-3">
-            <div class="card" style="width: 18rem;">
-                <img src="{{chat.chatphoto}}" class="card-img-top" alt="...">
-                <div class="card-body">
-                <h5 class="card-title">Чаты</h5>
-                </div>
-                <ul class="list-group list-group-flush">
-                <li class="list-group-item">{{chat.message}}</li>
-                </ul>
-                <div class="card-body">
-                <a href="#" class="card-link">Ссылка карточки</a>
-                <a href="#" class="card-link">Другая ссылка</a>
-                </div>
-            </div>
-        </div>
-      {% endfor %}
+            {% include 'card.html'  %}
+        {% endfor %}
     </div>
     {% endblock %}
 </div>
