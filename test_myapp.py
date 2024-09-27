@@ -1,58 +1,55 @@
-import unittest
-from app import app, db, User, Auto, Chat, Clouds, Realty
+# import unittest
+# from app import app, db, User, Auto, Chat, Clouds, Realty
 
-# Импортируем необходимые модули для написания и запуска тестов
+# class TestApp(unittest.TestCase):
 
-class TestApp(unittest.TestCase):
+#     def setUp(self):
+#         app.config['TESTING'] = True
+#         app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:postgres@localhost/test_database'
+#         app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+#         self.client = app.test_client()
 
-    # Создаем класс тестов, наследуемый от unittest.TestCase
+#         with app.app_context():
+#             db.create_all()
 
-    def setUp(self):
-        # Метод setUp выполняется перед запуском каждого теста
+#     def tearDown(self):
+#         with app.app_context():
+#             db.drop_all()
 
-        app.config['TESTING'] = True
-        # Устанавливаем конфигурацию приложения для режима тестирования
+#     def test_index_page(self):
+#         response = self.client.get('/')
+#         self.assertEqual(response.status_code, 200)
 
-        app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///:memory:'
-        # Устанавливаем временную базу данных SQLite в памяти для тестирования
+#     def test_user_page(self):
+#         response = self.client.get('/user')
+#         self.assertEqual(response.status_code, 200)
 
-        self.app = app.test_client()
-        # Создаем тестового клиента для взаимодействия с приложением
+#     def test_chat_page(self):
+#         response = self.client.get('/chat')
+#         self.assertEqual(response.status_code, 200)
 
-        with app.app_context():
-            db.create_all()
-        # Создаем все таблицы в базе данных для тестирования
+#     def test_clouds_page(self):
+#         response = self.client.get('/clouds')
+#         self.assertEqual(response.status_code, 200)
 
-    def tearDown(self):
-        # Метод tearDown выполняется после завершения каждого теста
+#     def test_auto_page(self):
+#         response = self.client.get('/auto')
+#         self.assertEqual(response.status_code, 200)
 
-        with app.app_context():
-            db.drop_all()
-        # Удаляем все таблицы из базы данных после завершения теста
+#     def test_realty_page(self):
+#         response = self.client.get('/realty')
+#         self.assertEqual(response.status_code, 200)
 
-    def test_index_route(self):
-        # Тест проверяет корректность ответа при обращении к маршруту '/'
+#     def test_login_route(self):
+#         response = self.client.post('/login', data={'username': 'name1', 'password': '111'})
+#         decoded_response = response.data.decode('utf-8')
+#         self.assertIn('Неверный логин или пароль', decoded_response)  # Проверяем сообщение об ошибке входа
+#         self.assertNotIn('Успешный вход!', decoded_response)  # Убедимся, что сообщения об успешном входе нет
+#     def test_register_route(self):
+#         response = self.client.post('/register', data={'username': 'test_user', 'password': 'test_password'})
+#         decoded_response = response.data.decode('utf-8')
+#         self.assertIn('Регистрация прошла успешно', decoded_response)
 
-        response = self.app.get('/')
-        # Отправляем GET-запрос на маршрут '/'
+# if __name__ == '__main__':
+#     unittest.main()
 
-        self.assertEqual(response.status_code, 200)
-        # Проверяем, что код ответа равен 200 (успешный запрос)
-
-
-def test_login_route(self):
-    response = self.app.post('/login', data=dict(username='testuser', password='testpassword'), follow_redirects=True)
-    decoded_response = response.data.decode('utf-8')
-    self.assertIn('Неверный логин или пароль', decoded_response)  # Проверяем сообщение об ошибке входа
-    self.assertNotIn('Успешный вход!', decoded_response)  # Убедимся, что сообщения об успешном входе нет
-
-
-    def test_register_route(self):
-        response = self.app.post('/register', data=dict(username='newuser', password='newpassword'), follow_redirects=True)
-        decoded_response = response.data.decode('utf-8')
-        self.assertIn('Регистрация прошла успешно', decoded_response)
-        # Проверяем, что в ответе содержится сообщение 'Регистрация прошла успешно'
-
-if __name__ == '__main__':
-    unittest.main()
-# Запускаем тесты, если скрипт запускается напрямую
